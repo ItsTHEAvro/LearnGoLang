@@ -38,8 +38,8 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fileServer := http.FileServer(http.Dir("./static/"))
 	http.Handle("/", fileServer)
-	http.HandleFunc("/submit", formHandler)
 	http.HandleFunc("/hello", helloHandler)
+	http.HandleFunc("/submit", formHandler)
 
 	fmt.Println("Starting server at port 8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
